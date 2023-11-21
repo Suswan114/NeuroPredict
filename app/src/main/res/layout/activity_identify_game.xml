@@ -68,6 +68,35 @@
       android:textSize="28sp"
       android:layout_marginTop="10dp"
       android:textColor="#BC1010"/>
+  <TextView
+      android:id="@+id/intertap"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/wrong_text"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:textStyle="bold"
+      android:visibility="gone"
+      android:text="Intertap Time:0.2s"
+      android:textSize="22sp"
+      android:layout_marginTop="10dp"
+      android:textColor="#673AB7"/>
+
+  <TextView
+      android:id="@+id/offset_distance"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/intertap"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:textStyle="bold"
+      android:visibility="gone"
+      android:text="Offset Dist.: 3"
+      android:textSize="22sp"
+      android:layout_marginTop="10dp"
+      android:textColor="#3B65FF"/>
+
+
   <androidx.cardview.widget.CardView
       android:layout_width="match_parent"
       android:layout_height="250dp"
@@ -80,13 +109,20 @@
       android:visibility="visible"
     app:cardBackgroundColor="#FFF27D">
       <androidx.constraintlayout.widget.ConstraintLayout
+          android:id="@+id/tapping_layout"
           android:layout_width="match_parent"
           android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/bottom_align"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
       <androidx.cardview.widget.CardView
           app:layout_constraintTop_toTopOf="parent"
           app:layout_constraintStart_toStartOf="parent"
-          android:layout_margin="5dp"
+          android:visibility="gone"
           android:layout_width="30dp"
           android:layout_height="30dp"
           android:id="@+id/c1"
@@ -94,242 +130,6 @@
           app:cardCornerRadius="15dp"
           android:clickable="true"
           />
-        <androidx.cardview.widget.CardView
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_margin="25dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/c2"
-            android:backgroundTint="#FF0000"
-            app:cardCornerRadius="15dp"
-            android:clickable="true"
-            />
-
-        <androidx.cardview.widget.CardView
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_margin="25dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/c3"
-            android:backgroundTint="#FF0000"
-            app:cardCornerRadius="15dp"
-            android:clickable="true"
-            />
-        <androidx.cardview.widget.CardView
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_margin="25dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/c4"
-            android:backgroundTint="#FF0000"
-            app:cardCornerRadius="15dp"
-            android:clickable="true"
-            />
-        <androidx.cardview.widget.CardView
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_margin="5dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/c5"
-            android:backgroundTint="#FF0000"
-            app:cardCornerRadius="15dp"
-            android:clickable="true"
-            />
-        <androidx.cardview.widget.CardView
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_margin="55dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/c6"
-            android:backgroundTint="#FF0000"
-            app:cardCornerRadius="15dp"
-            android:clickable="true"
-            />
-        <androidx.cardview.widget.CardView
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="40dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/c7"
-            android:backgroundTint="#FF0000"
-            app:cardCornerRadius="15dp"
-            android:clickable="true"
-            />
-
-        <androidx.cardview.widget.CardView
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginBottom="15dp"
-            android:layout_marginStart="40dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/c8"
-            android:backgroundTint="#FF0000"
-            app:cardCornerRadius="15dp"
-            android:clickable="true"
-            />
-        <androidx.cardview.widget.CardView
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="15dp"
-            android:layout_marginStart="40dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/c9"
-            android:backgroundTint="#FF0000"
-            app:cardCornerRadius="15dp"
-            android:clickable="true"
-            />
-        <androidx.cardview.widget.CardView
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/c4"
-            android:layout_marginBottom="45dp"
-            android:layout_marginStart="40dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/c10"
-            android:backgroundTint="#FF0000"
-            app:cardCornerRadius="15dp"
-            android:clickable="true"
-            />
-        <androidx.cardview.widget.CardView
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/c4"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginBottom="85dp"
-            android:layout_marginStart="100dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/c11"
-            android:backgroundTint="#FF0000"
-            app:cardCornerRadius="15dp"
-            android:clickable="true"
-            />
-
-        <androidx.cardview.widget.CardView
-            app:layout_constraintTop_toBottomOf="@id/c6"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="45dp"
-            android:layout_marginEnd="20dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/c12"
-            android:backgroundTint="#FF0000"
-            app:cardCornerRadius="15dp"
-            android:clickable="true"
-            />
-
-        <androidx.cardview.widget.CardView
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/c5"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/c13"
-            android:backgroundTint="#FF0000"
-            app:cardCornerRadius="15dp"
-            android:clickable="true"
-            />
-        <androidx.cardview.widget.CardView
-            app:layout_constraintStart_toStartOf="@id/c11"
-            app:layout_constraintEnd_toStartOf="@id/c12"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/c14"
-            android:backgroundTint="#FF0000"
-            app:cardCornerRadius="15dp"
-            android:clickable="true"
-            />
-        <androidx.cardview.widget.CardView
-            app:layout_constraintStart_toStartOf="@id/c8"
-            app:layout_constraintEnd_toStartOf="@id/c9"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginBottom="20dp"
-            android:id="@+id/c15"
-            android:backgroundTint="#FF0000"
-            app:cardCornerRadius="15dp"
-            android:clickable="true"
-            />
-        <androidx.cardview.widget.CardView
-            app:layout_constraintStart_toStartOf="@id/c9"
-            app:layout_constraintEnd_toStartOf="@id/c4"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/c16"
-            android:backgroundTint="#FF0000"
-            app:cardCornerRadius="15dp"
-            android:clickable="true"
-            />
-        <androidx.cardview.widget.CardView
-            app:layout_constraintStart_toStartOf="@id/c9"
-            app:layout_constraintEnd_toStartOf="@id/c4"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="20dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/c17"
-            android:backgroundTint="#FF0000"
-            app:cardCornerRadius="15dp"
-            android:clickable="true"
-            />
-        <androidx.cardview.widget.CardView
-            app:layout_constraintStart_toStartOf="@id/c9"
-            app:layout_constraintEnd_toStartOf="@id/c4"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/c18"
-            android:layout_marginBottom="25dp"
-            android:backgroundTint="#FF0000"
-            app:cardCornerRadius="15dp"
-            android:clickable="true"
-            />
-        <androidx.cardview.widget.CardView
-            app:layout_constraintStart_toStartOf="@id/c1"
-            app:layout_constraintEnd_toStartOf="@id/c2"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="10dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/c19"
-            android:backgroundTint="#FF0000"
-            app:cardCornerRadius="15dp"
-            android:clickable="true"
-            />
-        <androidx.cardview.widget.CardView
-            app:layout_constraintStart_toStartOf="@id/c13"
-            app:layout_constraintEnd_toStartOf="@id/c5"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/c20"
-            android:layout_marginBottom="50dp"
-            android:backgroundTint="#FF0000"
-            app:cardCornerRadius="15dp"
-            android:clickable="true"
-            />
 
       </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

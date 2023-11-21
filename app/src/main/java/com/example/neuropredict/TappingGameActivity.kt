@@ -26,7 +26,7 @@ class TappingGameActivity : AppCompatActivity() {
         var fin =1
         var ti : Long = 0
         var interTapTime : Long =0
-        var lastTime : Long = 5000
+        var lastTime : Long =15000
 
         tappingBtn.setOnClickListener {
             if(fin==0)
@@ -55,7 +55,7 @@ class TappingGameActivity : AppCompatActivity() {
                 fin=0
                 resetBtn.visibility=GONE
                 startBtn.visibility=GONE
-                object : CountDownTimer(5000, 1000){
+                object : CountDownTimer(15000, 1000){
                     override fun onTick(p0: Long) {
                         timer.text= (p0/1000).toString()
                         ti=p0
@@ -64,7 +64,7 @@ class TappingGameActivity : AppCompatActivity() {
                     override fun onFinish() {
                         timer.text="0"
                         val ans = String.format("%.2f", (interTapTime.toDouble()/(1000*counter))).toDouble()
-                        intertap.text = ans.toString()
+                        intertap.text = ans.toString()+"s"
                         resetBtn.visibility= View.VISIBLE
                         fin=1
                     }

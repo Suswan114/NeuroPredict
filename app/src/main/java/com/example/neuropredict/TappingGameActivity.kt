@@ -50,6 +50,7 @@ class TappingGameActivity : AppCompatActivity() {
             score.text="0"
             startBtn.visibility=View.VISIBLE
             resetBtn.visibility=GONE
+            intertap.visibility=GONE
         }
         startBtn.setOnClickListener {
                 fin=0
@@ -64,8 +65,9 @@ class TappingGameActivity : AppCompatActivity() {
                     override fun onFinish() {
                         timer.text="0"
                         val ans = String.format("%.2f", (interTapTime.toDouble()/(1000*counter))).toDouble()
-                        intertap.text = ans.toString()+"s"
+                        intertap.text = "Inter Tap Time:" + ans.toString()+"s"
                         resetBtn.visibility= View.VISIBLE
+                        intertap.visibility= View.VISIBLE
                         fin=1
                     }
                 }.start()

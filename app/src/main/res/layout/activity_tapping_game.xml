@@ -54,16 +54,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/intertap_text"
-            android:text="Inter-Tap Time: "
-            android:textSize="24sp"
-            android:layout_marginTop="16dp"
-            android:textColor="#C37C00" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/intertap"
             android:text="0s"
+            android:visibility="gone"
             android:textSize="24sp"
             android:layout_marginTop="16dp"
             android:textColor="#772A8C" />

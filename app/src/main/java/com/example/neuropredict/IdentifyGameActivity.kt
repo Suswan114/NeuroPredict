@@ -91,6 +91,8 @@ class IdentifyGameActivity : AppCompatActivity() {
             c1.visibility=GONE
             offsetDist.visibility= GONE
             intertap.visibility=GONE
+            lastTime=30000
+            k = 0F
         }
 
         startBtn.setOnClickListener {

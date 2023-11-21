@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.MotionEvent
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -13,6 +14,8 @@ import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet.Constraint
 import org.w3c.dom.Text
+import kotlin.math.abs
+import kotlin.math.sqrt
 
 class IdentifyGameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,15 +41,32 @@ class IdentifyGameActivity : AppCompatActivity() {
         var fin =1
         var randx=0
         var randy=0
+        var k: Float = 0F
+        var tx : Float =0F
+        var ty : Float = 0F
+        layout.setOnTouchListener(object : View.OnTouchListener {
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                when (event?.action) {
+                    MotionEvent.ACTION_DOWN -> {//Do Something
+                        tx = event.x
+                        ty = event.y
+                    }
+                }
+
+                return v?.onTouchEvent(event) ?: true
+            }
+        })
 
         tappingScreen.setOnClickListener {
+            k+= sqrt((abs(tx-randx)*abs(tx-randx)) + (abs(ty-randy)*abs(ty-randy)))
             wrong++
+
         }
 
         c1.setOnClickListener {
             right++
-            randx=(10..bottom.x.toInt()-5).random()
-            randy=(10..bottom.y.toInt()-5).random()
+            randx=(40..bottom.x.toInt()-40).random()
+            randy=(40..bottom.y.toInt()-40).random()
             c1.x= randx.toFloat()
             c1.y=randy.toFloat()
             interTapTime+=lastTime - ti
@@ -69,12 +89,14 @@ class IdentifyGameActivity : AppCompatActivity() {
             startBtn.visibility= View.VISIBLE
             resetBtn.visibility= View.GONE
             c1.visibility=GONE
+            offsetDist.visibility= GONE
+            intertap.visibility=GONE
         }
 
         startBtn.setOnClickListener {
             c1.visibility= VISIBLE
-            randx=(10..bottom.x.toInt()-10).random()
-            randy=(10..bottom.y.toInt()-10).random()
+            randx=(40..bottom.x.toInt()-40).random()
+            randy=(40..bottom.y.toInt()-40).random()
             c1.x= randx.toFloat()
             c1.y=randy.toFloat()
 
@@ -92,8 +114,16 @@ class IdentifyGameActivity : AppCompatActivity() {
                 override fun onFinish() {
                     correctText.text="CORRECT: " + right.toString()
                     wrongText.text="WRONG: "+wrong.toString()
-                    val ans = String.format("%.2f", (interTapTime.toDouble()/(1000*right))).toDouble()
+                    var ans : Double = 0.0
+                    var ans2 : Double= 0.0
+                    if(right!=0){
+                         ans = String.format("%.2f", (interTapTime.toDouble()/(1000*right))).toDouble()
+                    }
+                    if (wrong!=0){
+                        ans2 =String.format("%.2f", (k.toDouble()/(wrong*100))).toDouble()
+                    }
                     intertap.text = "Inter-Tap Time: "+ans.toString()+"s"
+                    offsetDist.text= "Offset Dist." + ans2.toString()+" pxl"
                     timer.text="0"
                     resetBtn.visibility= View.VISIBLE
                     fin=1
